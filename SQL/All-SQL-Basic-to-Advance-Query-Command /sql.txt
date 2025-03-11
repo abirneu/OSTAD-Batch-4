@@ -1,0 +1,318 @@
+"""
+Abir Hasan
+Department of Computer Science and Engineering
+Netrokona University
+Session:2019-2020
+"""
+1. Show all Database
+	SHOW DATABASES; 
+2. Create a new database 
+	CREATE DATABASE database_name;
+3. Select Database
+	USE database_name;
+4. How to find what database in
+	SELECT DATABASE();
+5. Drop or Delete a Database
+	DROP DATABASE database_name;
+6. Create a new Table
+	CREATE TABLE table_name(
+		id INT,
+		name VARCHAR(50),
+		city VARCHAR(50)
+	);
+7. Show all tables in a database
+	SHOW TABLES;
+8. Show all column in a Table
+	DESC table_name;
+9. Insert data into table 
+	INSERT INTO table_name(id,name,city)
+	VALUES
+	(1,"Tanvir","Dhaka"),
+	(2,"Sadia","Tiara"),
+	(3,"Maymuna","Brahmonbaria")
+
+	INSERT INTO table_name
+	VALUES
+	(1,"TANVIR","DHAKA"),
+
+	INSERT INTO table_name VALUES(1,"tANVIR"),(),(),...
+10. Read data in table
+	SELECT * FROM table_name;
+	SELECT column_name FROM table_name;
+11. Read data with condition
+	SELECT * FROM table_name WHERE id=2;
+12. Update query
+	UPDATE table_name
+	set contact_number = "01317277858"
+	where name = "Tanvir"
+13. Delete data from table
+	DELETE FROM table_name
+	WHERE name = 'Tanvir'
+14. Delete Table
+	DROP TABLE table_name ;
+
+15. Condition for Null Value
+	create table table_name(
+		id int NOT NULL,
+		name varchar(50) NOT NULL);
+16. Default value set
+	create table table_name(
+		id int NOT NULL,
+		name varchar(50) default="Tanvir");
+17. Primary Key set 
+	CREATE TABLE table_name(
+		id int PRIMARY KEY,
+		name varchar(50) default="hello");
+18. Auto Increment id
+	create table table_name(
+		id int primary key auto_increment,
+		name varchar(50));
+19. Alias 
+	select id as 'Account_number' , name as 'My Name' from table_name;
+20. String Function Concat
+	select id, concat(firstName," ",lastName) as FullName from table_name;
+21. Concat_ws (seperater)
+	select id , CONCAT_WS("_",firstName,midName,lastName) as FullName from table_name;
+22. Substring
+	select id, substring("Tanvir Ahmed",1,4) as fullTitle from table_name;
+	Ans: Tanv
+	select id, substring('Tanvir Ahmed', 8, 4) as fullTitle from table_name;
+	Ans : Ahme
+	amra chaile substring er bodole substr use korte pari . same result dibe
+	select id, substring/substr("Tanvir Ahmed",-4) as fullTitle from table_name;
+	Ans: hmed
+23. Replace string
+	REPLACE(str, from_str, to_str)
+	REPLACE('Hey World','Hey','Hello');
+	Ans: Hello World
+	select id, firstName,midName,REPLACE(lastName,'Maker','Hacker') as newLastName , city from student;
+24.Reverse function
+	select reverse('hello');
+	Ans: olleh
+	select id, reverse(firstName), midname, reverse(lastName), city from student;	
+25. Upper and Lower conversion
+	select UPPER('tavnir');
+	Ans: TANVIR
+	select LOWER('TAnvIR');
+	Ans: tanvir
+26. character length
+	select CHAR_LENGTH('Hello World');
+	Ans: 11
+	select id, firstName,lastName, char_length(city) > 6 as result from student;
+	select * from student where char_length(city) > 6;
+27. Insert a word
+	select INSERT("Hello World",7,0,"Tanvir");
+	Ans: Hello TanvirWorld
+	select insert("Hello World",7,2,"Tanvir");
+	Ans: Hello Tanvirrld
+	select insert("Hello World",6,0,"Tanvir");
+	Ans: HelloTanvirWorld
+	select insert("Hello World",3,2,"Tanvir");
+	Ans: HeTanvirrld
+	select id, firstName,lastName, INSERT(desig,7,0,'Hello World '),dept,salary from student where char_length(desig) >9;
+28. Left 
+	select LEFT("hey Tanvir ahmed",6);
+	Ans: hey Ta
+29. Right
+	SELECT RIGHT("hey Tanvir ahmed",4);
+	Ans: hmed
+30. Repeat
+	SELECT REPEAT("hello5",4);
+	Ans: hello5hello5hello5hello5
+31. Trim
+	SELECT TRIM("   hello world!       ");
+	Ans: hello world!
+32. Distinct clause
+	SELECT DISTINCT column_name from table_name;
+33. Order By (ascending order -> by default)
+	SELECT * FROM table_name ORDER BY column_name or column_number;
+34. Order by Descending order (Reverse order)
+	select * from table_name order by column_name DESC;
+35. Like 
+	select * from student where desig LIKE "%sh%"; (No Case sensitive)
+36. Add column in existing table
+	ALTER TABLE table_name ADD COLUMN new_column_name INT NOT NULL DEFAULT 25000;
+37. Limit clause
+	select * from student LIMIT 3;
+	select * from student where emp_id <2 limit 3;
+38. Count clause
+	select count(*) from student where salary >22000 ;
+	Ans: 3
+39. Group By
+	select dept from student GROUP BY dept;
+	select dept , count(id) from student group by dept;
+40. Max function 
+	select MAX(column_name) from table_name;
+41. Min function 
+	select Min(column_name) from table_name;
+42. SubQueries 
+	select * from table_name
+	where 
+	salary = (select MAX(salary) from table_name);
+43. Sum 
+	select sum(salary) from student;
+44. Avg
+	select avg(salary) from student;
+45. Having
+	select dept, sum(salary) from table_name group by dept HAVING sum(salary) > 50000;
+46. Mysql Datatypes
+	CHAR(0 to 255) and VARCHAR(0 to 65535)
+	DECIMAL(5,3) where 5 is Total Digit wit decimal and 3 is digit after decimal
+	FLOAT - upto ~7 digits, takes 4 bytes of memory
+	DOUBLE - upto ~15 digits, takes 8 bytes of memory
+
+	------ DATE DATATYPES ------
+	DATE format yyyy-mm-dd (eta jekono date store korar jonno use hoy)
+	TIME format HH:MM:SS (eta jekono time store korar jonno use hoy)
+	DATETIME format 'yyyy-mm-dd HH:MM:SS' (date and time eksathe store korar jonno use hoy)
+
+	CURDATE() --- YYYY-MM-DD ei format e current date dibe . CURDATE er CUR mane holo Current 
+	CURTIME() --- HH:MM:SS ei format e current time dibe . CURTIME er CUR mane holo Current
+	NOW() --- YYYY-MM-DD HH:MM:SS ai format e current date and time dibe 
+
+	YEAR() --- ai function er moddhe kono date rakhle setar theke Year return kore 
+	DAYNAME() --- ki bar seta return kore . jemon - saturday, sunday, monday...
+	DAYOFMONTH() --- month ke 1,2,3,....11,12 evabe number diye return kore . jemon march hoile 3 , july hoile 7 return kore
+	DAYOFWEEK() --- week er ajk kon day seta return kore . normally sunday theke count start kore
+	MONTHNAME() --- month er name return kore 
+
+	HOUR() ---- ai function er vitor time dile sekhan theke Hour return kore
+	MINUTE() ---- ai function er vitor time dile sekhan theke Minute return kore
+	SECOND() ---- ai function er vitor time dile sekhan theke Second return kore
+
+		create table person(
+	    	jd DATE,
+	    	jt TIME,
+	    	jdt DATETIME);
+		INSERT INTO person
+	    	VALUES
+	    	('2023-05-06','12:00:00','2023-05-05 10:30:00');
+	Date Time Function:->
+		CURDATE(),CURTIME(),NOW()
+			INSERT INTO table_name(jd,jt,jdt)
+			VALUES (CURDATE(),CURTIME(),NOW());
+		DAYNAME,DAYOFWEEK,DAYOFMONTH,MONTHNAME,YEAR,HOUR,MINUTE
+
+
+	Date Formatting:-> DATE_FORMAT()
+		Format	Description
+		%a	Abbreviated weekday name (Sun to Sat)
+		%b	Abbreviated month name (Jan to Dec)
+		%c	Numeric month name (0 to 12)
+		%D	Day of the month as a numeric value, followed by suffix (1st, 2nd, 3rd, ...)
+		%d	Day of the month as a numeric value (01 to 31)
+		%e	Day of the month as a numeric value (0 to 31)
+		%f	Microseconds (000000 to 999999)
+		%H	Hour (00 to 23)
+		%h	Hour (00 to 12)
+		%I	Hour (00 to 12)
+		%i	Minutes (00 to 59)
+		%j	Day of the year (001 to 366)
+		%k	Hour (0 to 23)
+		%l	Hour (1 to 12)
+		%M	Month name in full (January to December)
+		%m	Month name as a numeric value (00 to 12)
+		%p	AM or PM
+		%r	Time in 12 hour AM or PM format (hh:mm:ss AM/PM)
+		%S	Seconds (00 to 59)
+		%s	Seconds (00 to 59)
+		%T	Time in 24 hour format (hh:mm:ss)
+		%U	Week where Sunday is the first day of the week (00 to 53)
+		%u	Week where Monday is the first day of the week (00 to 53)
+		%V	Week where Sunday is the first day of the week (01 to 53). Used with %X
+		%v	Week where Monday is the first day of the week (01 to 53). Used with %x
+		%W	Weekday name in full (Sunday to Saturday)
+		%w	Day of the week where Sunday=0 and Saturday=6
+		%X	Year for the week where Sunday is the first day of the week. Used with %V
+		%x	Year for the week where Monday is the first day of the week. Used with %v
+		%Y	Year as a numeric, 4-digit value
+		%y	Year as a numeric, 2-digit value
+
+		Example of Date Formatting...
+		DATE_FORMAT(NOW(),'%D %a at %T')
+			Result: 21st Tue at 21:20:28
+		DATE_FORMAT(NOW(),"%m/%D/%Y")
+			Result: 07/10/2024
+	DATEDIFF(date1, date2)
+		select datediff(now(),'2023-05-06');
+	DATE_ADD(),DATE_SUM():=>
+		DATE_ADD(NOW(),INTERVAL 1 DAY)
+		DATE_ADD(NOW(),INTERVAL 1 YEAR)
+		DATE_ADD(NOW(),INTERVAL 1 MONTH)
+		DATE_SUB(NOW(),INTERVAL 1 DAY)
+		DATE_SUB(NOW(),INTERVAL 1 YEAR)
+		DATE_SUB(NOW(),INTERVAL 1 MONTH)
+	TIMEDIFF(date1,date2):=> similer to DATEDIFF
+47. AND , OR 
+	select * from exam where salary >30000 AND dept = 'Loan';
+        select * from exam where salary >30000 OR dept = 'Loan';
+48. In, NOT IN clause
+	SELECT * FROM table_name WHERE dept IN('Loan','Account','Cash');
+	SELECT * FROM table_name WHERE dept NOT IN('Loan','Account','Cash');
+49. Between
+	select * from table_name where char_length(dept) between 5 and 8;
+50. CASE (if else statement)
+	SELECT fname , lname , salary ,
+	CASE 
+	WHEN salary<4000 THEN 'Low Salary'
+	WHEN salary>3000 AND salary<4000 THEN 'Mid salary'
+	WHEN salary<3000 THEN 'Low salary'
+	ELSE 'NOT FOUND'
+	END AS "Salary Categroy' FROM table_name;
+51. IS NULL 
+	select * from table_name where dept IS NULL;
+52. NOT LIKE (oposite of LIKE Clause)
+53. UNIQUE Constraint :=> for create unique values
+54. Check Constraint :
+	create table contact(
+		name varchar(50),
+		mobile varchar(15) UNIQUE CHECK (LENGTH(mobile) >= 11));
+55. Column add + Column Delete + Column Rename 
+	ALTER TABLE table_name ADD COLUMN new_column_name VARCHAR(50) NOT NULL DEFAULT 'HELLO';
+	ALTER TABLE table_name DROP COLUMN column_name;
+	ALTER TABLE table_name RENAME COLUMN prev_column_name TO new_column_name;
+56. Table Name Rename 
+	RENAME TABLE prev_name TO new_name;
+57. Modify Column Constraint or Data Types
+	ALTER TABLE table_name MODIFY column_name VARCHAR(60) DEFAULT '01317277858';
+	// column name and column constraint, data type change in same time
+	ALTER TABLE table_name CHANGE prev_column_name new_column_name VARCHAR(45) NOT NULL;
+58. Relationship 
+	1. One to One 
+	2. One to Many 
+	3. Many to Many
+
+	one to many relationship example: 
+	create table customers(
+		id int primary key auto_increment,
+		name varchar(50) not null);
+	create table orders(
+		ord_id int primary key auto_increment,
+		amount int not null, 
+		customer_id int,
+		FOREIGN KEY (customer_id) REFERENCES customers(id));
+59. Join 
+	1. Cross join
+	2. Inner join
+	3. Left join
+	4. Right join
+
+	1. Cross Join ->
+		select * from customers, orders;
+	2. Inner Join -> 
+		select * from customers 
+		INNER JOIN orders
+		ON orders.customer_id=customers.id;
+
+		select name , SUM(amount) AS Total_Parchase from customers
+		INNER JOIN orders
+		ON orders.customer_id=customers.id GROUP BY name;
+	3. Left Join ->
+		select * from customers
+		LEFT JOIN orders
+		ON orders.customer_id=customers.id;
+	4. Right Join -> Similar with LEFT JOIN
+select name as Customers 
+from Customers
+where name not in
+(select a.name from Customers AS a INNER JOIN Orders AS b ON a.id=b.customerId);
