@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@plugin "daisyui";
+/* npx @tailwindcss/cli -i ./input.css -o ./src/output.css --watch */
+/* npx @tailwindcss/cli -i ./test.css -o ./test2.css --watch */
+@theme{
+    --color-custom_bg:
+}
+#bg_1{
+    background-color:#3ebfff;
+}
+  

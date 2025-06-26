@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sunnyside</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        #bg_1 {
+            background-color: #3ebfff;
+            background-image: url('../images/bg.jpg');
+        }
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=Fraunces:wght@700;900&display=swap');
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="font-['Barlow']">
+    <main class="max-w-screen-2xl m-auto min-w-min">
+        <div id="bg_1" class="text-white min-h-screen bg-blue-400 relative">
+            <!-- Desktop Navigation -->
+            <nav class="p-8 justify-between items-center hidden md:flex">
+                <a href="#" class="text-3xl font-black tracking-wider text-white">sunnyside</a>
+                <!-- nav links + button for desktop -->
+                <ul class="flex gap-8 items-center text-lg">
+                    <li>
+                        <a href="#" class="hover:text-blue-100 transition duration-300">About</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-blue-100 transition duration-300">Services</a>
+                    </li>
+                    <li>
+                        <a href="#" class="hover:text-blue-100 transition duration-300">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#" class="font-['Fraunces'] font-bold bg-white text-black
+                         rounded-full px-6 py-3 hover:text-white hover:bg-opacity-50 
+                         transition duration-300">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Navigation -->
+            <nav class="p-6 flex justify-between items-center md:hidden">
+                <a href="#" class="text-2xl font-black tracking-wider text-white">sunnyside</a>
+
+                <!-- Hamburger Menu Button -->
+                <button id="menu-btn" class="text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+
+                <!-- Mobile Menu (Hidden by default) -->
+                <div id="mobile-menu"
+                    class="absolute top-20 right-6 bg-white py-8 px-6 shadow-lg w-4/5 max-w-sm hidden">
+                    <!-- Triangle pointer at top right -->
+                    <div
+                        class="absolute -top-4 right-0 w-0 h-0 border-l-[20px] border-l-transparent border-b-[20px] border-b-white">
+                    </div>
+
+                    <ul class="flex flex-col gap-6 items-center text-lg text-gray-600">
+                        <li>
+                            <a href="#" class="hover:text-gray-900 transition duration-300">About</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-gray-900 transition duration-300">Services</a>
+                        </li>
+                        <li>
+                            <a href="#" class="hover:text-gray-900 transition duration-300">Projects</a>
+                        </li>
+                        <li>
+                            <a href="#" class="font-['Fraunces'] font-bold bg-yellow-400 text-black
+                            rounded-full px-6 py-3 hover:bg-yellow-500
+                            transition duration-300">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Hero section -->
+            <h1
+                class="font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-['Fraunces'] uppercase tracking-widest text-center mt-10 md:mt-20 px-4">
+                We are creatives</h1>
+
+            <!-- Responsive images -->
+            <img class="mx-auto w-16 h-28 sm:w-24 sm:h-40 md:w-32 md:h-56 mt-8 md:mt-12" src="../images/down-arrow.svg"
+                alt="Down arrow">
+            <img class="mx-auto h-3/4 sm:h-2/5 md:h-1/2 mt-6" src="../images/orange.png" alt="Orange">
+        </div>
+
+        <!-- Content section -->
+        <div class=" flex flex-col lg:flex-row    ">
+            <!-- left -->
+            <div class=" bg-yellow-300 lg:w-1/2 ">
+                <div class="px-20 py-30 ">
+                    <p class="font-bold text-3xl font-['Fraunces']">Transform your brand
+                    </p>
+                    <p class="mt-5">We are a full-service creative agency specializing
+                        in helping brands grow fast. <br> Engage your clients
+                        through compelling visuals that do most of the
+                        marketing for you.
+                    </p>
+                    <p class="mt-5 font-['Fraunces']">
+                        <a href="#" class="font-bold hover:underline">LEARN MORE</a>
+
+                    </p>
+                </div>
+            </div>
+            <div class=" lg:w-1/2 bg-green-200 flex justify-center items-center mt-20k
+            ">
+                <img src="../images/egg.jpg" alt="Egg image" class="mx-auto">
+            </div>
+
+        </div>
+        <!-- end of content section -->
+        <!-- testimonial section -->
+        <div>
+            <p class="  text-center font-bold text-2xl uppercase text-gray-600
+            mt-30 ">Client testimonials
+            </p>
+            <div class="flex flex-col lg:flex-row ">
+                <div class=" bg-green-300 lg:w-1/3 ">
+                    <!-- img src="../images/image-emily.jpg" alt="Emily" class="rounded-full w-24 h-24 mx-auto"> -->
+                    <img src="../images/abir.png" class="i rounded-full border-4 
+                border-amber-100 h-40  w-40    mx-auto   mt-5  alt="">
+                
+                 <p class=" text-center mt-10 mb-10 mx-10">We put our trust in Sunnyside and they delivered, making
+                    <br> sure our needs were met and deadlines were always hit.</p>
+                    <p class="text-center font-bold">Abir Hasan</p>
+                    <p class="text-center font-bold mb-5 ">Marketing Director</p>
+                </div>
+
+                <div class=" bg-yellow-300 lg:w-1/3 ">
+                    <!-- img src="../images/image-emily.jpg" alt="Emily" class="rounded-full w-24 h-24 mx-auto"> -->
+                    <img src="../images/abir.png" class="i rounded-full border-4 
+            border-amber-100 h-40  w-40    mx-auto   mt-5  alt="">
+            
+             <p class=" text-center mt-10 mb-10 mx-10">We put our trust in Sunnyside and they delivered, making <br>
+                    sure our needs were met and deadlines were always hit.</p>
+                    <p class="text-center font-bold">Abir Hasan</p>
+                    <p class="text-center font-bold mb-5 ">Marketing Director</p>
+                </div>
+
+                <div class=" bg-red-300 lg:w-1/3 ">
+                    <!-- img src="../images/image-emily.jpg" alt="Emily" class="rounded-full w-24 h-24 mx-auto"> -->
+                    <img src="../images/abir.png" class="i rounded-full border-4 
+        border-amber-100 h-40  w-40    mx-auto   mt-5  alt="">
+        
+         <p class=" text-center mt-10 mb-10 mx-10">We put our trust in Sunnyside and they delivered, making <br> sure
+                    our needs were met and deadlines were always hit.</p>
+                    <p class="text-center font-bold">Abir Hasan</p>
+                    <p class="text-center font-bold mb-5 ">Marketing Director</p>
+                </div>
+
+            </div>
+        </div>
+
+
+
+    </main>
+
+    <script>
+        // Simple JavaScript for mobile menu toggle
+        document.getElementById('menu-btn').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
