@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Applicants for {{ job.title }}</h2>
+    <a href="{% url 'job_detail' job.id %}" class="btn btn-secondary mb-3">Back to Job</a>
+    
+    {% if applicants %}
+    <div class="list-group">
+        {% for application in applicants %}
+        <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h5>{{ application.applicant.get_full_name|default:application.applicant.username }}</h5>
+                    <p>Applied on: {{ application.applied_at|date:"F d, Y" }}</p>
+                    <p>Status: <span class="badge bg-{% if application.status == 'accepted' %}success{% elif application.status == 'rejected' %}danger{% else %}warning{% endif %}">
+                        {{ application.get_status_display }}
+                    </span></p>
+                </div>
+                <div>
+                    <a href="{{ application.resume.url }}" class="btn btn-primary btn-sm" target="_blank">View Resume</a>
+                    <a href="mailto:{{ application.applicant.email }}" class="btn btn-info btn-sm">Contact</a>
+                </div>
+            </div>
+            <div class="mt-2">
+                <h6>Cover Letter:</h6>
+                <p>{{ application.cover_letter }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">No applicants yet.</div>
+    {% endif %}
+</div>
+{% endblock %}

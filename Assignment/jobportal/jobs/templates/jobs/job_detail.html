@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title">{{ job.title }}</h2>
+            <h5 class="card-subtitle mb-2 text-muted">{{ job.company_name }} - {{ job.location }}</h5>
+            <p class="card-text">{{ job.description }}</p>
+            <p class="card-text">
+                <small class="text-muted">Posted on {{ job.created_at|date:"F d, Y" }} by {{ job.posted_by.get_full_name|default:job.posted_by.username }}</small>
+            </p>
+            
+            <div class="mt-4">
+                {% if can_apply %}
+                    <h4>Apply for this position</h4>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit Application</button>
+                    </form>
+                {% elif request.user == job.posted_by %}
+                    <div class="d-flex gap-2">
+                        <a href="{% url 'view_applicants' job.id %}" class="btn btn-info">
+                            View Applicants ({{ job.application_set.count }})
+                        </a>
+                        <a href="{% url 'post_job' %}?edit={{ job.id }}" class="btn btn-secondary">
+                            Edit Job
+                        </a>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info">
+                        You've already applied for this position.
+                        <a href="{% url 'dashboard' %}" class="alert-link">View your applications</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

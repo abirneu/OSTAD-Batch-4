@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="max-w-5xl mx-auto px-4 py-10">
+  <div class="flex justify-between items-center mb-6">
+    <h2 class="text-2xl font-bold text-gray-800">Your Applications</h2>
+    <a href="{% url 'home' %}" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-md shadow hover:bg-blue-700 transition">
+      Browse Jobs
+    </a>
+  </div>
+
+  {% if applications %}
+    <div class="space-y-4">
+      {% for app in applications %}
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex justify-between items-start flex-col md:flex-row gap-4">
+            <div>
+              <h3 class="text-xl font-semibold text-gray-800">{{ app.job.title }}</h3>
+              <p class="text-gray-600">{{ app.job.company_name }} - {{ app.job.location }}</p>
+              <p class="text-sm text-gray-400 mt-1">Applied on {{ app.applied_at|date:"F d, Y" }}</p>
+            </div>
+            <div class="mt-2 md:mt-0">
+              <a href="{% url 'job_detail' app.job.id %}" class="px-4 py-2 text-sm bg-blue-500 text-white rounded-md hover:bg-blue-600 transition">
+                View Job
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center mt-20">
+      <p class="text-gray-600 text-lg">You haven't applied to any jobs yet.</p>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}
