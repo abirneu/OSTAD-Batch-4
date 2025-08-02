@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+
+
+@theme{
+    --color-primary: #5b00ba;
+}
+
+
+
+
+
+/* npx @tailwindcss/cli -i ./style.css -o ./output.css --watch */
+/* size choto korar jonno */
+/* npx @tailwindcss/cli -i ./style.css -o ./style2.css --minify */
+

@@ -1,0 +1,9 @@
+@import "tailwindcss";
+/* npx @tailwindcss/cli -i ./test.css -o ./test2.css --watch */
+@theme{
+    --color-primary: #5f9ea8;
+    --color-text: green;
+    --color-text-secondary: #333333;
+    --color-background: #ffffff;
+    --color-navbar: #e6e6d1;
+}
