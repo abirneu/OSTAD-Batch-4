@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+h2,h3, h4, h5 {
+    color: aqua;
+    font-size: 30px;
+}
+div > h2{
+    color: rgb(232, 232, 52);
+}
+div  h2  p{
+    color: rgb(58, 122, 226);
+}
+.btn {
+    background-color:green;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+}
+.btn:hover{
+    background-color:rgb(48, 142, 224);
+    padding: 24px 30px;
+    
+
+}
