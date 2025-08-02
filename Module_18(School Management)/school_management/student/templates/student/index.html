@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    {% comment %} <link rel="stylesheet" href="{% static 'student/css/index.css' %}" /> {% endcomment %}
+  </head>
+  <body>
+    <h1>This is Student App Template</h1>
+    <p>Welcome to the student management system.</p>
+
+    
+    <br>
+    <br>
+
+    <table border="1" cellspacing="0" >
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Roll</th>
+          <th>Father Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for student in student_data %}
+          <tr>
+            <td>{{ student.id }}</td>
+            <td>{{ student.name }}</td>
+            <td>{{ student.roll }}</td>
+            <td>{{ student.father_name }}</td>
+            <td><a href="">Delete</a></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
